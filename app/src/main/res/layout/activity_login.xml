@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_weixin"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"/>
+    <RelativeLayout
+        android:id="@+id/relativelayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="42px"
+            android:layout_height="60px"
+            android:src="@drawable/icon_wode" />
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_alignBottom="@+id/image1"
+            android:layout_toRightOf="@+id/image1"
+            android:layout_marginLeft="5dp"
+            android:hint="用户名"
+            android:textSize="32px"
+            android:textColorHint="#A7A7A7"
+            android:background="@drawable/frame"
+            android:gravity="center_vertical" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="42px"
+            android:layout_height="60px"
+            android:src="@drawable/icon_mima" />
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_alignBottom="@+id/image2"
+            android:layout_toRightOf="@+id/image2"
+            android:layout_marginLeft="5dp"
+            android:hint="密码"
+            android:textSize="32px"
+            android:textColorHint="#A7A7A7"
+            android:background="@drawable/frame"
+            android:gravity="center_vertical" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp">
+    </RelativeLayout>
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:textSize="30sp"
+        android:textColor="@drawable/button_font_style"
+        android:background="@drawable/radiuborder"
+        android:layout_marginBottom="30dp" />
+
+
+
+
+
+</LinearLayout>

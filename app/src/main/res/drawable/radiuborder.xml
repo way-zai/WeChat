@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="false">
+        <shape >
+            <!-- 设置背景色 -->
+            <solid android:color="#00ff00" />
+
+            <!-- 设置四个圆角的半径 -->
+            <corners
+                android:bottomLeftRadius="20px"
+                android:bottomRightRadius="20px"
+                android:topLeftRadius="20px"
+                android:topRightRadius="20px" />
+            <!-- 设置一下边距,让空间大一点 -->
+            <padding
+                android:bottom="10dp"
+                android:left="90dp"
+                android:right="90dp"
+                android:top="10dp" />
+
+
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape >
+            <!-- 设置背景色 -->
+            <solid android:color="#ffffff" />
+
+            <!-- 设置四个圆角的半径 -->
+            <corners
+                android:bottomLeftRadius="20px"
+                android:bottomRightRadius="20px"
+                android:topLeftRadius="20px"
+                android:topRightRadius="20px" />
+            <!-- 设置一下边距,让空间大一点 -->
+            <padding
+                android:bottom="10dp"
+                android:left="90dp"
+                android:right="90dp"
+                android:top="10dp" />
+
+        </shape>
+    </item>
+ </selector>
