@@ -3,11 +3,8 @@ package com.example.wayzai.wechat;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +12,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.wayzai.wechat.Thread.UserHttpThread;
+import com.example.wayzai.wechat.util.HttpHelp;
 
 
 public class Register extends ActionBarActivity {
@@ -24,16 +24,12 @@ public class Register extends ActionBarActivity {
     private EditText editPassword1;
     private RadioGroup radioGroup;
     private Button button;
-    private DBHelper dbHelper;
-    private SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mContext = Register.this;
         bindViews();
-        dbHelper = new DBHelper(mContext,"mysql.db",null,1);
-        db = dbHelper.getWritableDatabase();        //可读写数据库
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,14 +47,9 @@ public class Register extends ActionBarActivity {
                 if(name.equals("")||password.equals("")||password1.equals("")||sex.equals("")){
                     Toast.makeText(mContext,"用户名，密码，性别不能为空",Toast.LENGTH_SHORT).show();
                 }else if(password.equals(password1)){
-                    if(haveName(name,db)){
+                    if(haveName(name,password,sex)){
                         Toast.makeText(mContext,"该用户名已经被用过了，请重新输入",Toast.LENGTH_SHORT).show();
                     }else{
-                        ContentValues values = new ContentValues();
-                        values.put("name",name);
-                        values.put("passwd",password);
-                        values.put("sex", sex);
-                        db.insert("users", null, values);
                         Toast.makeText(mContext,"注册成功",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Register.this,login.class);
                         startActivity(intent);
@@ -77,14 +68,16 @@ public class Register extends ActionBarActivity {
         button = (Button)findViewById(R.id.button);
     }
     //判断数据库中是否已有该用户名
-    private boolean haveName(String name,SQLiteDatabase database){
-        Cursor cursor = database.query("users",null,"name = ?",new String[]{name},null,null,null);
-        return cursor.moveToFirst();
-        /**
-              * Move the cursor to the first row
-              * This method will return false if the cursor is empty
-              * @return whether the move succeeded.
-              */
+    private boolean haveName(String names,String passwd,String sex){
+        UserHttpThread userHttpThread = new UserHttpThread(HttpHelp.REGISTER_SERVLET,names,passwd,sex);
+        userHttpThread.start();
+        try{
+            userHttpThread.join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        String state = userHttpThread.getResult();
+        return state.equals("No");
     }
 
 

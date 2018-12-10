@@ -1,23 +1,21 @@
 package com.example.wayzai.wechat;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.wayzai.wechat.Thread.UserHttpThread;
+import com.example.wayzai.wechat.util.HttpHelp;
+
 
 public class login extends ActionBarActivity {
     private EditText editName;
     private EditText editPassword;
     private Button button;
-    private DBHelper dbHelper;
-    private SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +23,6 @@ public class login extends ActionBarActivity {
         editName = (EditText)findViewById(R.id.editName);
         editPassword = (EditText)findViewById(R.id.editPassword);
         button = (Button)findViewById(R.id.button);
-        dbHelper = new DBHelper(login.this,"mysql.db",null,1);
-        db = dbHelper.getWritableDatabase();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +32,7 @@ public class login extends ActionBarActivity {
                 if (name.equals("") || passwd.equals("")) {
                     Toast.makeText(login.this, "用户名，密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (match(name, passwd, db)) {
+                    if (match(name, passwd)) {
                         Toast.makeText(login.this, "登录成功", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(login.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
@@ -46,17 +42,22 @@ public class login extends ActionBarActivity {
         });
 
     }
-    private boolean match(String name,String passwd,SQLiteDatabase database){
-        Cursor cursor = database.query("users",null,"name=? and passwd=? ",new String[]{name,passwd},null,null,null);
-        return cursor.moveToFirst();
-        /**
-              * Move the cursor to the first row
-              * This method will return false if the cursor is empty
-              * @return whether the move succeeded.
-              */
+    public boolean match(String name,String passwd){
+        UserHttpThread userHttpThread = new UserHttpThread(HttpHelp.LOGIN_SERVLET,name,passwd);
+        userHttpThread.start();
+        try{
+            userHttpThread.join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        String state = userHttpThread.getResult();
+        if(state.equals("Yes")){
+            return true;
+        }else if(state.equals("No")){
+            return false;
+        }
+        return false;
     }
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
