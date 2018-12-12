@@ -11,7 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/head"
-        android:id="@+id/img_header"
+        android:id="@+id/img_head"
         />
 
     <RelativeLayout
@@ -60,7 +60,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="140dp"
-                android:id="@+id/img_content3"
+                android:id="@+id/img_content2"
                 android:src="@drawable/bk"
                 android:layout_marginRight="3dp"
                 />
@@ -68,7 +68,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="140dp"
-                android:id="@+id/img_content2"
+                android:id="@+id/img_content3"
                 android:src="@drawable/bk"
                 android:layout_marginRight="3dp"
                 />

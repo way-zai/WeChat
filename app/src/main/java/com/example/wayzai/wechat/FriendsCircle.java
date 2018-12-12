@@ -2,32 +2,42 @@ package com.example.wayzai.wechat;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
+
+import com.alibaba.fastjson.JSON;
+import com.example.wayzai.wechat.Thread.FriendHttpThread;
+import com.example.wayzai.wechat.Thread.UserHttpThread;
 import com.example.wayzai.wechat.adapter.FriendAdapter;
+import com.example.wayzai.wechat.bean.Friend;
+import com.example.wayzai.wechat.util.HttpHelp;
 
 import java.util.Arrays;
 import java.util.List;
 
 
 
-public class FriendsCircle extends ActionBarActivity {
-
+public class FriendsCircle extends AppCompatActivity {
+    private ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends_circle);
+        FriendHttpThread friendHttpThread = new FriendHttpThread(HttpHelp.FRIEND_SERVLET);
+        friendHttpThread.start();
+        try{
+            friendHttpThread.join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        List<Friend> friends = JSON.parseArray(friendHttpThread.getResult(),Friend.class);
+        FriendAdapter friendAdapter = new FriendAdapter(FriendsCircle.this,friends);
+        listView = (ListView)findViewById(R.id.friend_list);
 
-        final LayoutInflater inflater = LayoutInflater.from(this);
-        View headView = inflater.inflate(R.layout.head_list, null, false);
-
-
-        ListView friendList=(ListView)findViewById(R.id.frined_list);
-
-        List friends= Arrays.asList("a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a");
-        FriendAdapter  adapter=new FriendAdapter(this,R.layout.friend_item,friends);
-        friendList.addHeaderView(headView);
-        friendList.setAdapter(adapter);
+        View v = LayoutInflater.from(this).inflate(R.layout.head_list, null);
+        listView.addHeaderView(v);
+        listView.setAdapter(friendAdapter);
     }
 }

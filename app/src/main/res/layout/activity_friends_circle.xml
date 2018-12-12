@@ -2,14 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.wayzai.wechat.FriendActivity">
+    android:layout_height="match_parent">
 
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/frined_list"
+        android:id="@+id/friend_list"
         >
 
     </ListView>
