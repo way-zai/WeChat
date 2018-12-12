@@ -2,8 +2,14 @@ package com.example.wayzai.wechat;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ListView;
+import com.example.wayzai.wechat.adapter.FriendAdapter;
+
+import java.util.Arrays;
+import java.util.List;
+
 
 
 public class FriendsCircle extends ActionBarActivity {
@@ -12,27 +18,16 @@ public class FriendsCircle extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends_circle);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_friends_circle, menu);
-        return true;
-    }
+        final LayoutInflater inflater = LayoutInflater.from(this);
+        View headView = inflater.inflate(R.layout.head_list, null, false);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        ListView friendList=(ListView)findViewById(R.id.frined_list);
 
-        return super.onOptionsItemSelected(item);
+        List friends= Arrays.asList("a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a");
+        FriendAdapter  adapter=new FriendAdapter(this,R.layout.friend_item,friends);
+        friendList.addHeaderView(headView);
+        friendList.setAdapter(adapter);
     }
 }
