@@ -10,24 +10,21 @@
         android:id="@+id/login"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="登录"
-        android:textSize="20sp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
-        android:background="@drawable/button_background"
-        android:textColor="@drawable/button_font_style"/>
+        android:text="登录"
+        android:textSize="20sp"
+        android:textColor="@drawable/button_font_style"
+        android:background="@drawable/button_background" />
+
     <Button
         android:id="@+id/register"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
         android:text="注册"
         android:textSize="20sp"
         android:textColor="@drawable/button_font_style"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
         android:background="@drawable/button_background"/>
-
-
-
-
 </RelativeLayout>

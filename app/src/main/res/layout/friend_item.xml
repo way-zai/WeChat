@@ -8,16 +8,14 @@
     >
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
         android:id="@+id/img_head"
-        />
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        >
+        android:layout_marginLeft="8dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,9 +28,9 @@
             />
 
         <TextView
+            android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/content"
             android:layout_below="@+id/name"
             android:layout_alignLeft="@id/name"
             android:textColor="#000000"
@@ -48,30 +46,27 @@
             >
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="140dp"
                 android:id="@+id/img_content1"
+                android:layout_width="80dp"
+                android:layout_height="140dp"
                 android:layout_marginRight="3dp"
                 />
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="140dp"
                 android:id="@+id/img_content2"
+                android:layout_width="80dp"
+                android:layout_height="140dp"
                 android:layout_marginRight="3dp"
                 />
 
             <ImageView
+                android:id="@+id/img_content3"
                 android:layout_width="80dp"
                 android:layout_height="140dp"
-                android:id="@+id/img_content3"
                 android:layout_marginRight="3dp"
                 />
 
         </LinearLayout>
-
     </RelativeLayout>
-
-
 
 </LinearLayout>

@@ -13,6 +13,7 @@
         android:src="@drawable/btn_weixin"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="70dp"/>
+
     <RelativeLayout
         android:id="@+id/relativelayout1"
         android:layout_width="match_parent"
@@ -20,7 +21,6 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="20dp">
-
         <ImageView
             android:id="@+id/image1"
             android:layout_width="42px"
@@ -38,8 +38,8 @@
             android:textColorHint="#A7A7A7"
             android:background="@drawable/frame"
             android:gravity="center_vertical" />
-
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,12 +85,11 @@
             android:layout_marginLeft="5dp"
             android:hint="确认密码"
             android:textSize="32px"
-
             android:textColorHint="#A7A7A7"
             android:background="@drawable/frame"
             android:gravity="center_vertical" />
-
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,9 +100,9 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
             android:background="@drawable/frame"
-            android:gravity="center"
             android:layout_marginBottom="20dp">
             <RadioButton
                 android:id="@+id/man"
@@ -125,14 +124,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="注册"
         android:textSize="30sp"
         android:textColor="@drawable/button_font_style"
-        android:background="@drawable/radiuborder"
-        android:layout_marginBottom="30dp" />
-
-
-
-
-
+        android:background="@drawable/radiuborder"/>
 </LinearLayout>
