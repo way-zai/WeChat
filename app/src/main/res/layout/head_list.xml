@@ -4,30 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        />
     <ImageView
+        android:id="@+id/bk_header"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:id="@+id/bk_header"
-        android:background="@drawable/head_img"
-        />
+        android:background="@drawable/head_img" />
+
     <ImageButton
+        android:id="@+id/back"
         android:layout_width="20dp"
         android:layout_height="24dp"
         android:background="@drawable/icon_back"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="27dp"
-        android:id="@+id/back"
         android:onClick="back"/>
     <ImageButton
+        android:id="@+id/publish"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/camera"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
-        android:id="@+id/publish"
+        android:background="@drawable/camera"
         android:onClick="toPublish"/>
 
 

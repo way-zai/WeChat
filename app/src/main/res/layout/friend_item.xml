@@ -21,20 +21,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name"
-            android:text="你的名字"
             android:textColor="#ff516bff"
             android:layout_marginBottom="3dp"
             android:textSize="18sp"
+            android:text="你的名字"
             />
 
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
-            android:layout_alignLeft="@id/name"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"
+            android:layout_below="@+id/name"
+            android:layout_alignLeft="@id/name"
             android:textSize="18sp"
             />
         <LinearLayout

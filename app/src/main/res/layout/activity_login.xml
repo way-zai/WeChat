@@ -84,4 +84,12 @@
         android:textColor="@drawable/button_font_style"
         android:layout_marginBottom="30dp"
         android:background="@drawable/radiuborder" />
+    <TextView
+        android:id="@+id/zktestingtextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="#ffffff"
+        android:text="遇到问题？"
+        />
 </LinearLayout>
