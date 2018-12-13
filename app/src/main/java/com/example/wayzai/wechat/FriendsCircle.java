@@ -1,5 +1,6 @@
 package com.example.wayzai.wechat;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class FriendsCircle extends AppCompatActivity {
     private ListView listView;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +41,13 @@ public class FriendsCircle extends AppCompatActivity {
         View v = LayoutInflater.from(this).inflate(R.layout.head_list, null);
         listView.addHeaderView(v);
         listView.setAdapter(friendAdapter);
+        //Intent it = getIntent();
+        //name = it.getStringExtra("name");
     }
+//    public void toPublish(View v){
+//        Intent intent = new Intent(FriendsCircle.this,EditMy.class);
+//        intent.putExtra("name",name);
+//        startActivity(intent);
+//        finish();
+//    }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,7 @@ public class login extends AppCompatActivity{
                     if (match(name, passwd)) {
                         Toast.makeText(login.this, "登录成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(login.this,FriendsCircle.class);
+                        intent.putExtra("name",name);
                         startActivity(intent);
                     } else {
                         Toast.makeText(login.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();

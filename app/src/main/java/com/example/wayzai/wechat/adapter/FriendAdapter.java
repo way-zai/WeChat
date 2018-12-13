@@ -1,6 +1,7 @@
 package com.example.wayzai.wechat.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,27 +53,40 @@ public class FriendAdapter extends BaseAdapter{
             holder.imageView = (ImageView)convertView.findViewById(R.id.img_head);
             holder.nameView = (TextView)convertView.findViewById(R.id.name);
             holder.contentView = (TextView)convertView.findViewById(R.id.content);
+            holder.contentImage[0]=(ImageView)convertView.findViewById(R.id.img_content1);
+            holder.contentImage[1]=(ImageView)convertView.findViewById(R.id.img_content2);
+            holder.contentImage[2]=(ImageView)convertView.findViewById(R.id.img_content3);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.nameView.setText(mData.get(position).getName());
-        holder.contentView.setText(mData.get(position).getContent());
-        ImageHttpThread imageHttpThread = new ImageHttpThread(mData.get(position).getHead());
-        imageHttpThread.start();
-        try{
-            imageHttpThread.join();
-        }catch (Exception e){
-            e.printStackTrace();
+        Friend friend=mData.get(position);
+        holder.nameView.setText(friend.getName());
+        holder.contentView.setText(friend.getContent());
+        holder.imageView.setImageBitmap(getImage(friend.getHead()));
+
+        String[] pictures=friend.getPicture();
+        for(int i=0;i<pictures.length;i++){
+            holder.contentImage[i].setImageBitmap(getImage(pictures[i]));
         }
-        holder.imageView.setImageBitmap(imageHttpThread.getResultBitmap());
         return convertView;
     }
     static class ViewHolder{
         ImageView imageView;
         TextView nameView;
         TextView contentView;
+        ImageView[] contentImage= new ImageView[3];
+    }
 
+    private Bitmap getImage(String imgUrl){
+        ImageHttpThread imageHttpThread = new ImageHttpThread(imgUrl);
+        imageHttpThread.start();
+        try{
+            imageHttpThread.join();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return imageHttpThread.getResultBitmap();
     }
 }
 
