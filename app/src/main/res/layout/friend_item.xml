@@ -10,7 +10,6 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/head"
         android:id="@+id/img_head"
         />
 
@@ -36,7 +35,6 @@
             android:id="@+id/content"
             android:layout_below="@+id/name"
             android:layout_alignLeft="@id/name"
-            android:text="发表说说发表说说发表说说发表说说发表说说发表说说发表说说发表说说发表说说发表说说发发表说说发表说说发表说说发表说说发表说说"
             android:textColor="#000000"
             android:layout_marginBottom="10dp"
             android:textSize="18sp"

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -66,8 +65,11 @@ public class FriendAdapter extends BaseAdapter{
         holder.imageView.setImageBitmap(getImage(friend.getHead()));
 
         String[] pictures=friend.getPicture();
-        for(int i=0;i<pictures.length;i++){
-            holder.contentImage[i].setImageBitmap(getImage(pictures[i]));
+        for(int i=0;i<3;i++){
+            if(i<pictures.length)
+                holder.contentImage[i].setImageBitmap(getImage(pictures[i]));
+            else
+                holder.contentImage[i].setImageBitmap(null);
         }
         return convertView;
     }

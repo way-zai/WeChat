@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,7 +19,7 @@ import com.example.wayzai.wechat.util.HttpHelp;
 public class EditMy extends AppCompatActivity {
 
     private TextView textView;
-    private TextView contents;
+    private EditText contents;
     private String name;
     private String myContent;
     @Override
@@ -25,24 +27,26 @@ public class EditMy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_my);
         textView = (TextView)findViewById(R.id.publish);
-        contents = (TextView)findViewById(R.id.edit_letter);
+        contents = (EditText)findViewById(R.id.editPublish);
         Intent it = getIntent();
         name = it.getStringExtra("name");
-        myContent = contents.getText().toString();
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myContent = contents.getText().toString();
+                FriendHttpThread friendThread = new FriendHttpThread(HttpHelp.FRIEND_SERVLET,name,myContent);
+                friendThread.start();
+                Intent intent = new Intent(EditMy.this,FriendsCircle.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
-
-    public void publish(View v){
-        FriendHttpThread friendThread = new FriendHttpThread(HttpHelp.FRIEND_SERVLET,name,myContent);
-        friendThread.start();
-        try{
-            friendThread.join();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public void toBack(View v){
         Intent intent = new Intent(EditMy.this,FriendsCircle.class);
         startActivity(intent);
-        finish();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

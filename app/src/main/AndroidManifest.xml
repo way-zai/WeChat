@@ -30,11 +30,11 @@
         </activity>
         <activity
             android:name=".FriendsCircle"
-            android:label="@string/title_activity_friends_circle" >
+            android:label="朋友圈" >
         </activity>
         <activity
             android:name=".EditMy"
-            android:label="@string/title_activity_edit_my" >
+            android:label="我的朋友圈" >
         </activity>
     </application>
 
