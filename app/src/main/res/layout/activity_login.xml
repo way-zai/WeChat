@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#FFFFFF">
+    android:background="@drawable/bg4">
 
 
     <ImageView
@@ -13,6 +13,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="70dp"
         android:src="@drawable/btn_weixin" />
+
     <RelativeLayout
         android:id="@+id/relativelayout1"
         android:layout_width="match_parent"
@@ -84,12 +85,56 @@
         android:textColor="@drawable/button_font_style"
         android:layout_marginBottom="30dp"
         android:background="@drawable/radiuborder" />
-    <TextView
-        android:id="@+id/zktestingtextview"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10px">
+        <View
+            android:layout_width="300px"
+            android:layout_height="2px"
+            android:background="#D2D2D2"
+            android:layout_weight="1"></View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第三方登录"
+            android:textColor="#D2D2D2"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="300px"
+            android:layout_height="2px"
+            android:background="#D2D2D2"
+            android:layout_weight="1"></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:layout_width="86px"
+            android:layout_height="70px"
+            android:src="@drawable/btn_gf"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="74px"
+            android:layout_height="74px"
+            android:src="@drawable/btn_zfb"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/phonenumberqklogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:text="手机号快速登录"
         android:textColor="#ffffff"
-        android:text="遇到问题？"
+        android:textSize="18sp"
+        android:background="@drawable/radiuborder"
         />
+
 </LinearLayout>
