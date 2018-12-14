@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="#FFFFFF">
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/btn_weixin"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="70dp"/>
 
     <RelativeLayout
@@ -23,13 +25,13 @@
         android:layout_marginBottom="20dp">
         <ImageView
             android:id="@+id/image1"
-            android:layout_width="42px"
-            android:layout_height="60px"
+            android:layout_width="32px"
+            android:layout_height="50px"
             android:src="@drawable/icon_wode" />
         <EditText
             android:id="@+id/editName"
             android:layout_width="match_parent"
-            android:layout_height="60px"
+            android:layout_height="50px"
             android:layout_alignBottom="@+id/image1"
             android:layout_toRightOf="@+id/image1"
             android:layout_marginLeft="5dp"
@@ -48,13 +50,13 @@
         android:layout_marginBottom="20dp">
         <ImageView
             android:id="@+id/image2"
-            android:layout_width="42px"
-            android:layout_height="60px"
+            android:layout_width="32px"
+            android:layout_height="50px"
             android:src="@drawable/icon_mima" />
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_height="60px"
+            android:layout_height="50px"
             android:layout_alignBottom="@+id/image2"
             android:layout_toRightOf="@+id/image2"
             android:layout_marginLeft="5dp"
@@ -73,13 +75,13 @@
         android:layout_marginBottom="20dp">
         <ImageView
             android:id="@+id/image3"
-            android:layout_width="42px"
-            android:layout_height="60px"
+            android:layout_width="32px"
+            android:layout_height="50px"
             android:src="@drawable/icon_mima" />
         <EditText
             android:id="@+id/editPassword1"
             android:layout_width="match_parent"
-            android:layout_height="60px"
+            android:layout_height="50px"
             android:layout_alignBottom="@+id/image3"
             android:layout_toRightOf="@+id/image3"
             android:layout_marginLeft="5dp"
