@@ -1,22 +1,19 @@
 package com.example.wayzai.wechat;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.wayzai.wechat.Thread.FriendHttpThread;
 import com.example.wayzai.wechat.util.HttpHelp;
 
 
-public class EditMy extends AppCompatActivity {
+public class EditMyActivity extends AppCompatActivity {
 
     private TextView textView;
     private EditText contents;
@@ -36,14 +33,14 @@ public class EditMy extends AppCompatActivity {
                 myContent = contents.getText().toString();
                 FriendHttpThread friendThread = new FriendHttpThread(HttpHelp.FRIEND_SERVLET,name,myContent);
                 friendThread.start();
-                Intent intent = new Intent(EditMy.this,FriendsCircle.class);
+                Intent intent = new Intent(EditMyActivity.this,FriendsCircleActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
     public void toBack(View v){
-        Intent intent = new Intent(EditMy.this,FriendsCircle.class);
+        Intent intent = new Intent(EditMyActivity.this,FriendsCircleActivity.class);
         startActivity(intent);
     }
 

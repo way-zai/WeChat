@@ -21,19 +21,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".RegisterActivity"
             android:label="注册" >
         </activity>
         <activity
-            android:name=".login"
+            android:name=".LoginActivity"
             android:label="登录" >
         </activity>
         <activity
-            android:name=".FriendsCircle"
+            android:name=".FriendsCircleActivity"
             android:label="朋友圈" >
         </activity>
         <activity
-            android:name=".EditMy"
+            android:name=".EditMyActivity"
             android:label="我的朋友圈" >
         </activity>
     </application>

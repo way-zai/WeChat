@@ -1,10 +1,8 @@
 package com.example.wayzai.wechat;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +16,7 @@ import com.example.wayzai.wechat.Thread.UserHttpThread;
 import com.example.wayzai.wechat.util.HttpHelp;
 
 
-public class Register extends AppCompatActivity{
+public class RegisterActivity extends AppCompatActivity{
     private Context mContext;
     private EditText editName;
     private EditText editPassword;
@@ -29,7 +27,7 @@ public class Register extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        mContext = Register.this;
+        mContext = RegisterActivity.this;
         bindViews();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +50,7 @@ public class Register extends AppCompatActivity{
                         Toast.makeText(mContext,"该用户名已经被用过了，请重新输入",Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(mContext,"注册成功",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Register.this,login.class);
+                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                         startActivity(intent);
                     }
                 }else{

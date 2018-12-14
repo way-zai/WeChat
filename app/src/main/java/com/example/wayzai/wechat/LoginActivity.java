@@ -2,9 +2,7 @@ package com.example.wayzai.wechat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +13,7 @@ import com.example.wayzai.wechat.Thread.UserHttpThread;
 import com.example.wayzai.wechat.util.HttpHelp;
 
 
-public class login extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity{
     private EditText editName;
     private EditText editPassword;
     private Button button;
@@ -33,15 +31,15 @@ public class login extends AppCompatActivity{
                 name = editName.getText().toString();
                 passwd = editPassword.getText().toString();
                 if (name.equals("") || passwd.equals("")) {
-                    Toast.makeText(login.this, "用户名，密码不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "用户名，密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
                     if (match(name, passwd)) {
-                        Toast.makeText(login.this, "登录成功", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(login.this,FriendsCircle.class);
+                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this,FriendsCircleActivity.class);
                         intent.putExtra("name",name);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(login.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
