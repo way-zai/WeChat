@@ -9,4 +9,5 @@ public class HttpHelp {
     public static String LOGIN_SERVLET = "Login";
     public static String REGISTER_SERVLET = "Register";
     public static String FRIEND_SERVLET = "Friend";
+    public static String Character_Encoding= "utf-8";
 }

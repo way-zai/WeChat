@@ -35,15 +35,15 @@ public class FriendHttpThread extends Thread {
             if (name == null) {
                 url = new URL(HttpHelp.URL + mode);
             } else {
-                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(name,"utf-8") +
-                        "&contents=" + URLEncoder.encode(content,"utf-8") );
+                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(name,HttpHelp.Character_Encoding) +
+                        "&contents=" + URLEncoder.encode(content,HttpHelp.Character_Encoding) );
             }
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(String.valueOf(HttpMethod.GET));
             conn.setConnectTimeout(HttpHelp.TIME_OUT);
             if (conn.getResponseCode() == 200) {
                 InputStream is = conn.getInputStream();
-                InputStreamReader inputStreamReader = new InputStreamReader(is, "utf-8");
+                InputStreamReader inputStreamReader = new InputStreamReader(is, HttpHelp.Character_Encoding);
                 BufferedReader reader = new BufferedReader(inputStreamReader);
                 StringBuffer results = new StringBuffer();
                 String temp;

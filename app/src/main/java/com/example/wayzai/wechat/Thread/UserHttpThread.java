@@ -40,17 +40,17 @@ public class UserHttpThread extends Thread {
         try {
             URL url;
             if (sex == null) {
-                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,"utf-8") + "&password=" + URLEncoder.encode(password,"utf-8"));
+                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,HttpHelp.Character_Encoding) + "&password=" + URLEncoder.encode(password,HttpHelp.Character_Encoding));
             } else {
-                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,"utf-8") +
-                        "&password=" + URLEncoder.encode(password,"utf-8") + "&sex=" + URLEncoder.encode(sex,"utf-8"));
+                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,HttpHelp.Character_Encoding) +
+                        "&password=" + URLEncoder.encode(password,HttpHelp.Character_Encoding) + "&sex=" + URLEncoder.encode(sex,HttpHelp.Character_Encoding));
             }
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(String.valueOf(HttpMethod.GET));
             conn.setConnectTimeout(HttpHelp.TIME_OUT);
             if (conn.getResponseCode() == 200) {
                 InputStream is = conn.getInputStream();
-                InputStreamReader inputStreamReader = new InputStreamReader(is, "utf-8");
+                InputStreamReader inputStreamReader = new InputStreamReader(is, HttpHelp.Character_Encoding);
                 BufferedReader reader = new BufferedReader(inputStreamReader);
                 StringBuffer results = new StringBuffer();
                 String temp;

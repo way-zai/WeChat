@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity{
                         sex = raidoButton.getText().toString();
                     }
                 }
-                if(name.equals("")||password.equals("")||password1.equals("")||sex.equals("")){
+                if("".equals(name)||"".equals(password)||"".equals(password1)||"".equals(sex)){
                     Toast.makeText(mContext,"用户名，密码，性别不能为空",Toast.LENGTH_SHORT).show();
                 }else if(password.equals(password1)){
                     if(haveName(name,password,sex)){

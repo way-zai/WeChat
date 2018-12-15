@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity{
                 String name, passwd;
                 name = editName.getText().toString();
                 passwd = editPassword.getText().toString();
-                if (name.equals("") || passwd.equals("")) {
+                if ("".equals(name) || "".equals(name)) {
                     Toast.makeText(LoginActivity.this, "用户名，密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
                     if (match(name, passwd)) {
@@ -55,9 +55,9 @@ public class LoginActivity extends AppCompatActivity{
             e.printStackTrace();
         }
         String state = userHttpThread.getResult();
-        if(state.equals("Yes")){
+        if("Yes".equals(state)){
             return true;
-        }else if(state.equals("No")){
+        }else if("No".equals(state)){
             return false;
         }
         return false;
