@@ -3,15 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-<<<<<<< HEAD
     android:gravity="center_horizontal"
     android:background="#ffffff">
-=======
-    android:gravity="center"
-    android:background="#FFFFFF"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
->>>>>>> 4d2ea95e3cbec2bef8cad4bf0583fd246c4f976b
 
 
     <ImageView
