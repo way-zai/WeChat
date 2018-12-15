@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/bg4">
+    android:background="@drawable/bg2_cg">
 
 
     <ImageView
@@ -39,7 +39,6 @@
             android:textSize="32px"
             android:textColorHint="#A7A7A7"
             android:background="@drawable/frame" />
-
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -64,8 +63,19 @@
             android:textColorHint="#A7A7A7"
             android:background="@drawable/frame"
             android:gravity="center_vertical" />
-
+        <TextView
+            android:id="@+id/forgetyourpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码？"
+            android:textColor="#F3F3FA"
+            android:textSize="15sp"
+            android:layout_below="@+id/editPassword"
+            android:layout_alignRight="@+id/editPassword"
+            />
     </RelativeLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,5 +146,30 @@
         android:textSize="18sp"
         android:background="@drawable/radiuborder"
         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10px"
+        >
+        <View
+            android:layout_width="300px"
+            android:layout_height="2px"
+            android:background="#D2D2D2"
+            android:layout_weight="1"></View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="https://github.com/way-zai/WeChat.git"
+            android:textColor="#D2D2D2"
+            />
+        <View
+            android:layout_width="300px"
+            android:layout_height="2px"
+            android:background="#D2D2D2"
+            android:layout_weight="1"></View>
+    </LinearLayout>
 
 </LinearLayout>
