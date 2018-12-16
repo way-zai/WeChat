@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center"
+    android:background="#ffffff">
 
 
     <ImageView
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="忘记密码？"
-            android:textColor="#F3F3FA"
+            android:textColor="#adadad"
             android:textSize="15sp"
             android:layout_below="@+id/editPassword"
             android:layout_alignRight="@+id/editPassword"
@@ -110,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="第三方登录"
-            android:textColor="#D2D2D2"
+            android:textColor="#adadad"
             android:layout_weight="1"/>
         <View
             android:layout_width="300px"
@@ -162,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="https://github.com/way-zai/WeChat.git"
-            android:textColor="#D2D2D2"
+            android:textColor="#adadad"
             />
         <View
             android:layout_width="300px"
