@@ -41,7 +41,8 @@ public class FriendHttpThread extends Thread {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(String.valueOf(HttpMethod.GET));
             conn.setConnectTimeout(HttpHelp.TIME_OUT);
-            if (conn.getResponseCode() == 200) {
+
+            if (conn.getResponseCode() ==HttpURLConnection.HTTP_OK) {
                 InputStream is = conn.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(is, HttpHelp.Character_Encoding);
                 BufferedReader reader = new BufferedReader(inputStreamReader);

@@ -21,6 +21,7 @@ import java.util.List;
 public class FriendAdapter extends BaseAdapter{
     private Context mContext;
     private List<Friend> mData;
+    private static final int IMGAE_COUNT=3;
 
     public FriendAdapter(Context mContext, List<Friend> mData) {
         this.mContext = mContext;
@@ -65,7 +66,7 @@ public class FriendAdapter extends BaseAdapter{
         holder.imageView.setImageBitmap(getImage(friend.getHead()));
 
         String[] pictures=friend.getPicture();
-        for(int i=0;i<3;i++){
+        for(int i=0;i<IMGAE_COUNT;i++){
             if(i<pictures.length)
                 holder.contentImage[i].setImageBitmap(getImage(pictures[i]));
             else
@@ -77,7 +78,7 @@ public class FriendAdapter extends BaseAdapter{
         ImageView imageView;
         TextView nameView;
         TextView contentView;
-        ImageView[] contentImage= new ImageView[3];
+        ImageView[] contentImage= new ImageView[IMGAE_COUNT];
     }
 
     private Bitmap getImage(String imgUrl){

@@ -1,7 +1,5 @@
 package com.example.wayzai.wechat.Thread;
 
-import android.util.Log;
-
 import com.example.wayzai.wechat.util.HttpHelp;
 import com.example.wayzai.wechat.util.HttpMethod;
 
@@ -38,17 +36,17 @@ public class UserHttpThread extends Thread {
     @Override
     public void run() {
         try {
-            URL url;
-            if (sex == null) {
-                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,HttpHelp.Character_Encoding) + "&password=" + URLEncoder.encode(password,HttpHelp.Character_Encoding));
-            } else {
-                url = new URL(HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,HttpHelp.Character_Encoding) +
-                        "&password=" + URLEncoder.encode(password,HttpHelp.Character_Encoding) + "&sex=" + URLEncoder.encode(sex,HttpHelp.Character_Encoding));
-            }
+
+            String address=HttpHelp.URL + mode + "?userName=" + URLEncoder.encode(username,HttpHelp.Character_Encoding)
+                    + "&password=" + URLEncoder.encode(password,HttpHelp.Character_Encoding);
+            if(sex!=null)
+                address+="&sex=" + URLEncoder.encode(sex,HttpHelp.Character_Encoding);
+            URL url=new URL(address);
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(String.valueOf(HttpMethod.GET));
             conn.setConnectTimeout(HttpHelp.TIME_OUT);
-            if (conn.getResponseCode() == 200) {
+            if (conn.getResponseCode() ==HttpURLConnection.HTTP_OK) {
                 InputStream is = conn.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(is, HttpHelp.Character_Encoding);
                 BufferedReader reader = new BufferedReader(inputStreamReader);
